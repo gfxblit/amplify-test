@@ -1,0 +1,100 @@
+{
+  "api": {
+    "stripewebhook": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "streamlitauth0ddb5c9b299e": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "userbalance"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_balanceIncrement": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_ddbTable": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_endpointSecret": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_stripeApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    },
+    "AMPLIFY_function_streamlitauth0ddb5c9b299e_stripeProduct": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "streamlitauth0ddb5c9b299e"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "userbalance": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}
